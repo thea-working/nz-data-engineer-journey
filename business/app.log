@@ -1,0 +1,30 @@
+2026-02-27 21:20:00,895 - __main__ - INFO - loading users from csv file
+2026-02-27 21:20:00,896 - __main__ - INFO - load users from csv, current user: {'id': '1', 'name': 'Alice', 'age': '25', 'country': 'NZ'}
+2026-02-27 21:20:00,896 - __main__ - INFO - load users from csv, current user: {'id': '2', 'name': 'Bob', 'age': 'not_available', 'country': 'AU'}
+2026-02-27 21:20:00,896 - __main__ - INFO - load users from csv, current user: {'id': '3', 'name': 'Charlie', 'age': '30', 'country': ''}
+2026-02-27 21:20:00,896 - __main__ - INFO - load users from csv, current user: {'id': '4', 'name': '', 'age': '22', 'country': 'US'}
+2026-02-27 21:20:00,896 - __main__ - INFO - load users from csv, current user: {'id': '5', 'name': 'Eva', 'age': '19', 'country': 'UK'}
+2026-02-27 21:20:00,896 - __main__ - INFO - load users from csv, current user: {'id': '6', 'name': 'Frank', 'age': '-5', 'country': 'NZ'}
+2026-02-27 21:20:00,896 - __main__ - INFO - load users from csv, current user: {'id': '7', 'name': 'Grace', 'age': '200', 'country': 'AU'}
+2026-02-27 21:20:00,896 - __main__ - INFO - load users from csv, current user: {'id': '8', 'name': 'eleven', 'age': '16', 'country': 'US'}
+2026-02-27 21:20:00,896 - __main__ - INFO - load users from csv, current user: {'id': '9', 'name': 'max', 'age': '19', 'country': 'US'}
+2026-02-27 21:20:00,896 - __main__ - INFO - load users from csv, current user: {'id': '10', 'name': 'lily', 'age': '27', 'country': 'UK'}
+2026-02-27 21:20:00,896 - __main__ - INFO - load users from csv, current user: {'id': '11', 'name': 'joe', 'age': '36', 'country': 'NZ'}
+2026-02-27 21:20:00,896 - __main__ - INFO - load users from csv, current user: {'id': '12', 'name': 'mike', 'age': '21', 'country': 'US'}
+2026-02-27 21:20:00,896 - __main__ - INFO - loading users finished, start to clean users
+2026-02-27 21:20:00,896 - __main__ - INFO - clean user: 1, name: Alice, age: 25, country: NZ
+2026-02-27 21:20:00,896 - __main__ - WARNING - invalid user info: {'id': '2', 'name': 'Bob', 'age': 'not_available', 'country': 'AU'}
+2026-02-27 21:20:00,896 - __main__ - INFO - clean user: 3, name: Charlie, age: 30, country: Unknown
+2026-02-27 21:20:00,896 - __main__ - WARNING - invalid username: 4, name: , age: 22, country: US
+2026-02-27 21:20:00,896 - __main__ - INFO - clean user: 5, name: Eva, age: 19, country: UK
+2026-02-27 21:20:00,896 - __main__ - WARNING - invalid user age: 6, name: Frank, age: -5, country: NZ
+2026-02-27 21:20:00,896 - __main__ - WARNING - invalid user age: 7, name: Grace, age: 200, country: AU
+2026-02-27 21:20:00,896 - __main__ - INFO - clean user: 8, name: eleven, age: 16, country: US
+2026-02-27 21:20:00,896 - __main__ - INFO - clean user: 9, name: max, age: 19, country: US
+2026-02-27 21:20:00,896 - __main__ - INFO - clean user: 10, name: lily, age: 27, country: UK
+2026-02-27 21:20:00,896 - __main__ - INFO - clean user: 11, name: joe, age: 36, country: NZ
+2026-02-27 21:20:00,896 - __main__ - INFO - clean user: 12, name: mike, age: 21, country: US
+2026-02-27 21:20:00,896 - __main__ - INFO - clean users finished, start to analyze
+2026-02-27 21:20:00,896 - __main__ - INFO - analyze_users_optimized, country_count: [('NZ', 2), ('Unknown', 1), ('UK', 2), ('US', 3)], average_age: 24.12, median_age: 23.0 , youngest_user: {'id': 8, 'name': 'eleven', 'age': 16, 'country': 'US'}
+2026-02-27 21:20:00,896 - __main__ - INFO - analyze finished, start to save result to csv file
+2026-02-27 21:20:00,896 - __main__ - INFO - save result to csv file finished
