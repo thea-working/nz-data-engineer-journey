@@ -28,3 +28,155 @@
 2026-02-27 21:20:00,896 - __main__ - INFO - analyze_users_optimized, country_count: [('NZ', 2), ('Unknown', 1), ('UK', 2), ('US', 3)], average_age: 24.12, median_age: 23.0 , youngest_user: {'id': 8, 'name': 'eleven', 'age': 16, 'country': 'US'}
 2026-02-27 21:20:00,896 - __main__ - INFO - analyze finished, start to save result to csv file
 2026-02-27 21:20:00,896 - __main__ - INFO - save result to csv file finished
+
+2026-03-08 11:06:36,470 | INFO | __main__ | etl_pipeline.py:98 | Data pipeline started
+2026-03-08 11:06:36,472 | INFO | __main__ | etl_pipeline.py:102 | Users dataset loaded: 3 rows:
+2026-03-08 11:06:36,472 | INFO | __main__ | etl_pipeline.py:105 | Orders dataset loaded: 4 rows:
+2026-03-08 11:06:36,475 | INFO | __main__ | etl_pipeline.py:109 | Merged dataset created: 4 rows:
+2026-03-08 11:06:36,476 | INFO | __main__ | etl_pipeline.py:55 | Removed 1 rows with missing country
+2026-03-08 11:06:36,476 | INFO | __main__ | etl_pipeline.py:112 | Cleaned dataset created: 3 rows:
+2026-03-08 11:06:36,479 | INFO | __main__ | etl_pipeline.py:115 | Aggregated dataset created: 2 rows:
+2026-03-08 11:06:36,480 | INFO | __main__ | etl_pipeline.py:120 | Data pipeline finished successfully
+2026-03-08 12:36:13,498 | INFO | __main__ | etl_pipeline.py:100 | Data pipeline started
+2026-03-08 12:36:13,504 | INFO | __main__ | etl_pipeline.py:104 | Users dataset loaded: 3 rows:
+2026-03-08 12:36:13,505 | INFO | __main__ | etl_pipeline.py:107 | Orders dataset loaded: 4 rows:
+2026-03-08 12:36:13,510 | INFO | __main__ | etl_pipeline.py:111 | Merged dataset created: 4 rows:
+2026-03-08 12:36:13,511 | INFO | __main__ | etl_pipeline.py:55 | Removed 1 rows with missing country
+2026-03-08 12:36:13,511 | INFO | __main__ | etl_pipeline.py:114 | Cleaned dataset created: 3 rows:
+2026-03-08 12:36:13,517 | INFO | __main__ | etl_pipeline.py:117 | Aggregated dataset created: 2 rows:
+2026-03-08 12:36:19,367 | INFO | __main__ | etl_pipeline.py:126 | Data pipeline finished successfully
+2026-03-08 12:38:16,721 | INFO | __main__ | etl_pipeline.py:100 | Data pipeline started
+2026-03-08 12:38:16,730 | INFO | __main__ | etl_pipeline.py:104 | Users dataset loaded: 3 rows:
+2026-03-08 12:38:16,730 | INFO | __main__ | etl_pipeline.py:107 | Orders dataset loaded: 4 rows:
+2026-03-08 12:38:16,735 | INFO | __main__ | etl_pipeline.py:111 | Merged dataset created: 4 rows:
+2026-03-08 12:38:16,736 | INFO | __main__ | etl_pipeline.py:55 | Removed 1 rows with missing country
+2026-03-08 12:38:16,736 | INFO | __main__ | etl_pipeline.py:114 | Cleaned dataset created: 3 rows:
+2026-03-08 12:38:16,741 | INFO | __main__ | etl_pipeline.py:117 | Aggregated dataset created: 2 rows:
+2026-03-08 12:38:16,799 | INFO | __main__ | etl_pipeline.py:126 | Data pipeline finished successfully
+2026-03-08 12:46:07,004 | INFO | __main__ | etl_pipeline.py:99 | Data pipeline started
+2026-03-08 12:46:07,012 | INFO | __main__ | etl_pipeline.py:103 | Users dataset loaded: 3 rows:
+2026-03-08 12:46:07,013 | INFO | __main__ | etl_pipeline.py:106 | Orders dataset loaded: 4 rows:
+2026-03-08 12:46:07,018 | INFO | __main__ | etl_pipeline.py:110 | Merged dataset created: 4 rows:
+2026-03-08 12:46:07,020 | INFO | __main__ | etl_pipeline.py:55 | Removed 1 rows with missing country
+2026-03-08 12:46:07,020 | INFO | __main__ | etl_pipeline.py:112 | Cleaned dataset created: 3 rows:
+2026-03-08 12:46:07,025 | INFO | __main__ | etl_pipeline.py:116 | Aggregated dataset created: 2 rows:
+2026-03-08 12:46:07,093 | INFO | __main__ | etl_pipeline.py:87 | Data written to Parquet with partition on 'country'
+2026-03-08 12:46:07,094 | INFO | __main__ | etl_pipeline.py:121 | Data pipeline finished successfully
+2026-03-08 12:46:42,018 | INFO | __main__ | etl_pipeline.py:99 | Data pipeline started
+2026-03-08 12:46:42,020 | INFO | __main__ | etl_pipeline.py:103 | Users dataset loaded: 3 rows:
+2026-03-08 12:46:42,020 | INFO | __main__ | etl_pipeline.py:106 | Orders dataset loaded: 4 rows:
+2026-03-08 12:46:42,022 | INFO | __main__ | etl_pipeline.py:110 | Merged dataset created: 4 rows:
+2026-03-08 12:46:42,022 | INFO | __main__ | etl_pipeline.py:55 | Removed 1 rows with missing country
+2026-03-08 12:46:42,022 | INFO | __main__ | etl_pipeline.py:112 | Cleaned dataset created: 3 rows:
+2026-03-08 12:46:42,025 | INFO | __main__ | etl_pipeline.py:116 | Aggregated dataset created: 2 rows:
+2026-03-08 12:46:42,061 | INFO | __main__ | etl_pipeline.py:87 | Data written to Parquet with partition on 'country'
+2026-03-08 12:46:42,062 | INFO | __main__ | etl_pipeline.py:121 | Data pipeline finished successfully
+2026-03-08 21:42:59,695 | INFO | __main__ | main.py:17 | User logs processing started
+2026-03-08 21:42:59,703 | INFO | business.day8_log_processors.user_log_processor | user_log_processor.py:24 | Loaded user log 5 rows
+2026-03-08 21:42:59,710 | INFO | business.day8_log_processors.user_log_processor | user_log_processor.py:34 | Original log 5 rows , after cleaning 4 rows, delete 1 rows with missing country
+2026-03-08 21:42:59,716 | INFO | business.day8_log_processors.user_log_processor | user_log_processor.py:52 | Aggregated user activity created: 2 rows
+2026-03-08 21:42:59,719 | INFO | business.day8_log_processors.user_log_processor | user_log_processor.py:63 | Save result into csv file: /Users/stone/Documents/nz-data-engineer-journey/business/data/user_activity.csv,2 rows data saved
+2026-03-08 21:42:59,719 | INFO | __main__ | main.py:23 | User logs processing finished successfully
+2026-03-09 10:48:16,314 | INFO | __main__ | main.py:17 | User logs processing started
+2026-03-09 10:48:16,322 | INFO | business.day8_log_processors.user_log_processor | user_log_processor.py:24 | Loaded user log 12 rows
+2026-03-09 10:48:16,333 | INFO | business.day8_log_processors.user_log_processor | user_log_processor.py:34 | Original log 12 rows , after cleaning 10 rows, delete 2 rows with missing country
+2026-03-09 10:48:16,343 | INFO | business.day8_log_processors.user_log_processor | user_log_processor.py:52 | Aggregated user activity created: 3 rows
+2026-03-09 10:48:16,345 | INFO | business.day8_log_processors.user_log_processor | user_log_processor.py:67 | Aggregated country activity created: 4 rows
+2026-03-09 10:48:16,346 | ERROR | __main__ | main.py:26 | User log processing failed: level name country is not the name of the index
+Traceback (most recent call last):
+  File "/Users/stone/Documents/nz-data-engineer-journey/business/day8_log_processors/main.py", line 22, in main
+    processor.run()
+    ~~~~~~~~~~~~~^^
+  File "/Users/stone/Documents/nz-data-engineer-journey/business/day8_log_processors/user_log_processor.py", line 121, in run
+    self.compute_user_country_activity()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/stone/Documents/nz-data-engineer-journey/business/day8_log_processors/user_log_processor.py", line 78, in compute_user_country_activity
+    self.df.groupby('user_id', 'country')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/stone/Documents/nz-data-engineer-journey/.venv/lib/python3.14/site-packages/pandas/util/_decorators.py", line 336, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/stone/Documents/nz-data-engineer-journey/.venv/lib/python3.14/site-packages/pandas/core/frame.py", line 10817, in groupby
+    return DataFrameGroupBy(
+        obj=self,
+    ...<6 lines>...
+        dropna=dropna,
+    )
+  File "/Users/stone/Documents/nz-data-engineer-journey/.venv/lib/python3.14/site-packages/pandas/core/groupby/groupby.py", line 1095, in __init__
+    grouper, exclusions, obj = get_grouper(
+                               ~~~~~~~~~~~^
+        obj,
+        ^^^^
+    ...<4 lines>...
+        dropna=self.dropna,
+        ^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/stone/Documents/nz-data-engineer-journey/.venv/lib/python3.14/site-packages/pandas/core/groupby/grouper.py", line 789, in get_grouper
+    raise ValueError(f"level name {level} is not the name of the index")
+ValueError: level name country is not the name of the index
+2026-03-09 10:50:09,135 | INFO | __main__ | main.py:17 | User logs processing started
+2026-03-09 10:50:09,142 | INFO | business.day8_log_processors.user_log_processor | user_log_processor.py:24 | Loaded user log 12 rows
+2026-03-09 10:50:09,148 | INFO | business.day8_log_processors.user_log_processor | user_log_processor.py:34 | Original log 12 rows , after cleaning 10 rows, delete 2 rows with missing country
+2026-03-09 10:50:09,155 | INFO | business.day8_log_processors.user_log_processor | user_log_processor.py:52 | Aggregated user activity created: 3 rows
+2026-03-09 10:50:09,157 | INFO | business.day8_log_processors.user_log_processor | user_log_processor.py:67 | Aggregated country activity created: 4 rows
+2026-03-09 10:50:09,159 | INFO | business.day8_log_processors.user_log_processor | user_log_processor.py:83 | Aggregated user country activity created: 5 rows
+2026-03-09 10:50:09,162 | INFO | business.day8_log_processors.user_log_processor | user_log_processor.py:94 | Save result into csv file: /Users/stone/Documents/nz-data-engineer-journey/business/data/user_activity.csv,3 rows data saved
+2026-03-09 10:50:09,163 | INFO | business.day8_log_processors.user_log_processor | user_log_processor.py:101 | Save result into csv file: /Users/stone/Documents/nz-data-engineer-journey/business/data/country_activity.csv,4 rows data saved
+2026-03-09 10:50:09,164 | INFO | business.day8_log_processors.user_log_processor | user_log_processor.py:108 | Save result into csv file: /Users/stone/Documents/nz-data-engineer-journey/business/data/user_country_activity.csv,5 rows data saved
+2026-03-09 10:50:09,164 | INFO | __main__ | main.py:23 | User logs processing finished successfully
+2026-03-09 11:03:55,071 | INFO | __main__ | main.py:17 | User logs processing started
+2026-03-09 11:03:55,076 | INFO | business.day8_log_processors.user_log_processor | user_log_processor.py:27 | Loaded user log 12 rows
+2026-03-09 11:03:55,085 | INFO | business.day8_log_processors.user_log_processor | user_log_processor.py:40 | Original log 12 rows , after cleaning 10 rows, delete 2 rows with missing country
+2026-03-09 11:03:55,092 | INFO | business.day8_log_processors.user_log_processor | user_log_processor.py:58 | Aggregated user activity created: 3 rows
+2026-03-09 11:03:55,098 | INFO | business.day8_log_processors.user_log_processor | user_log_processor.py:73 | Aggregated country activity created: 4 rows
+2026-03-09 11:03:55,102 | INFO | business.day8_log_processors.user_log_processor | user_log_processor.py:89 | Aggregated user country activity created: 5 rows
+2026-03-09 11:03:55,106 | INFO | business.day8_log_processors.user_log_processor | user_log_processor.py:108 | Saved /Users/stone/Documents/nz-data-engineer-journey/business/data/user_activity.csv (3 rows)
+2026-03-09 11:03:55,106 | INFO | business.day8_log_processors.user_log_processor | user_log_processor.py:108 | Saved /Users/stone/Documents/nz-data-engineer-journey/business/data/country_activity.csv (4 rows)
+2026-03-09 11:03:55,107 | INFO | business.day8_log_processors.user_log_processor | user_log_processor.py:108 | Saved /Users/stone/Documents/nz-data-engineer-journey/business/data/user_country_activity.csv (5 rows)
+2026-03-09 11:03:55,107 | INFO | __main__ | main.py:23 | User logs processing finished successfully
+2026-03-09 13:26:27,555 | INFO | business.day10_api_post_pipeline.api_ingestion | api_ingestion.py:13 | Requesting API data from https://jsonplaceholder.typicode.com/posts
+2026-03-09 13:26:28,855 | INFO | business.day10_api_post_pipeline.api_ingestion | api_ingestion.py:21 | Fetched 100 records from API
+2026-03-09 13:26:28,858 | INFO | business.day10_api_post_pipeline.api_ingestion | api_ingestion.py:28 | Saving API data to /Users/stone/Documents/nz-data-engineer-journey/business/data/api_posts.json
+2026-03-09 13:26:28,861 | INFO | business.day10_api_post_pipeline.api_ingestion | api_ingestion.py:33 | Saving API data successfully
+2026-03-09 13:57:51,570 | INFO | business.day10_api_post_pipeline.api_post_pipeline | api_post_pipeline.py:20 | Loading API json data
+2026-03-09 13:57:51,581 | INFO | business.day10_api_post_pipeline.api_post_pipeline | api_post_pipeline.py:22 | Loaded 100 rows
+2026-03-09 13:57:51,581 | INFO | business.day10_api_post_pipeline.api_post_pipeline | api_post_pipeline.py:33 | Computing user posts count
+2026-03-09 13:57:51,582 | ERROR | __main__ | main.py:34 | Fetching and processing API data failed: 'user_id'
+Traceback (most recent call last):
+  File "/Users/stone/Documents/nz-data-engineer-journey/business/day10_api_post_pipeline/main.py", line 29, in main
+    pipeline.run()
+    ~~~~~~~~~~~~^^
+  File "/Users/stone/Documents/nz-data-engineer-journey/business/day10_api_post_pipeline/api_post_pipeline.py", line 61, in run
+    self.compute_user_posts_count()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/stone/Documents/nz-data-engineer-journey/business/day10_api_post_pipeline/api_post_pipeline.py", line 35, in compute_user_posts_count
+    self.df.groupby('user_id')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/Users/stone/Documents/nz-data-engineer-journey/.venv/lib/python3.14/site-packages/pandas/util/_decorators.py", line 336, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/stone/Documents/nz-data-engineer-journey/.venv/lib/python3.14/site-packages/pandas/core/frame.py", line 10817, in groupby
+    return DataFrameGroupBy(
+        obj=self,
+    ...<6 lines>...
+        dropna=dropna,
+    )
+  File "/Users/stone/Documents/nz-data-engineer-journey/.venv/lib/python3.14/site-packages/pandas/core/groupby/groupby.py", line 1095, in __init__
+    grouper, exclusions, obj = get_grouper(
+                               ~~~~~~~~~~~^
+        obj,
+        ^^^^
+    ...<4 lines>...
+        dropna=self.dropna,
+        ^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/stone/Documents/nz-data-engineer-journey/.venv/lib/python3.14/site-packages/pandas/core/groupby/grouper.py", line 901, in get_grouper
+    raise KeyError(gpr)
+KeyError: 'user_id'
+2026-03-09 13:59:23,167 | INFO | business.day10_api_post_pipeline.api_post_pipeline | api_post_pipeline.py:20 | Loading API json data
+2026-03-09 13:59:23,170 | INFO | business.day10_api_post_pipeline.api_post_pipeline | api_post_pipeline.py:22 | Loaded 100 rows
+2026-03-09 13:59:23,171 | INFO | business.day10_api_post_pipeline.api_post_pipeline | api_post_pipeline.py:33 | Computing user posts count
+2026-03-09 13:59:23,182 | INFO | business.day10_api_post_pipeline.api_post_pipeline | api_post_pipeline.py:41 | Created user post summary (10 rows)
+2026-03-09 13:59:23,182 | INFO | business.day10_api_post_pipeline.api_post_pipeline | api_post_pipeline.py:50 | Saving user post summary to /Users/stone/Documents/nz-data-engineer-journey/business/data/user_posts.csv
+2026-03-09 13:59:23,183 | INFO | business.day10_api_post_pipeline.api_post_pipeline | api_post_pipeline.py:54 | Saved 10 records
+2026-03-09 13:59:23,183 | INFO | __main__ | main.py:31 | Fetching and processing API data finished successfully

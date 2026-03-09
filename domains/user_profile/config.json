@@ -1,0 +1,6 @@
+{
+  "input_file": "data/users.csv",
+  "output_file": "data/user_statistics.csv",
+  "log_file": "logs/app.log",
+  "log_level": "INFO"
+}

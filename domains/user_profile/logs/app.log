@@ -1,0 +1,10 @@
+2026-03-01 12:22:19,144 | INFO | __main__ | main.py:31 | User profile pipeline started
+2026-03-01 12:22:19,144 | INFO | domains.user_profile.src.loader | loader.py:35 | Total loaded: 12
+2026-03-01 12:22:19,144 | WARNING | domains.user_profile.src.cleaner | cleaner.py:39 | Skipping invalid row: {'id': '2', 'name': 'Bob', 'age': 'not_available', 'country': 'AU'} | Error: invalid literal for int() with base 10: 'not_available'
+2026-03-01 12:22:19,144 | WARNING | domains.user_profile.src.cleaner | cleaner.py:25 | skipping user with invalid name : id: 4, name: , age: 22, country: US
+2026-03-01 12:22:19,144 | WARNING | domains.user_profile.src.cleaner | cleaner.py:29 | skipping user with invalid age : id: 6, name: Frank, age: -5, country: NZ
+2026-03-01 12:22:19,144 | WARNING | domains.user_profile.src.cleaner | cleaner.py:29 | skipping user with invalid age : id: 7, name: Grace, age: 200, country: AU
+2026-03-01 12:22:19,144 | INFO | domains.user_profile.src.cleaner | cleaner.py:42 | Total cleaned: 8
+2026-03-01 12:22:19,144 | INFO | domains.user_profile.src.analyzer | analyzer.py:48 | Analysis result: 8 users | Average age: 24.12 | Median age: 23.0 | Youngest: User(id=8, name='eleven', age=16, country='US')
+2026-03-01 12:22:19,145 | INFO | domains.user_profile.src.writer | writer.py:34 | Analysis results saved to /Users/stone/Documents/nz-data-engineer-journey/domains/user_profile/data/user_statistics.csv
+2026-03-01 12:22:19,145 | INFO | __main__ | main.py:44 | User profile pipeline finished successfully

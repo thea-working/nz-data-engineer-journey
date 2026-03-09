@@ -1,0 +1,14 @@
+[
+  {"user_id": 1, "event": "login", "country": "NZ", "timestamp": "2024-01-01"},
+  {"user_id": 1, "event": "view", "country": "NZ", "timestamp": "2024-01-01"},
+  {"user_id": 2, "event": "login", "country": "AU", "timestamp": "2024-01-02"},
+  {"user_id": 1, "event": "login", "country": "US", "timestamp": "2024-01-02"},
+  {"user_id": 1, "event": "view", "country": "US", "timestamp": "2024-01-02"},
+  {"user_id": 2, "event": "view", "country": null, "timestamp": "2024-01-02"},
+  {"user_id": 1, "event": "purchase", "country": "US", "timestamp": "2024-01-02"},
+  {"user_id": 2, "event": "purchase", "country": "AU", "timestamp": "2024-01-02"},
+  {"user_id": 3, "event": "login", "country": null, "timestamp": "2024-01-03"},
+  {"user_id": 4, "event": "login", "country": "UK", "timestamp": "2024-01-04"},
+  {"user_id": 4, "event": "login", "country": "NZ", "timestamp": "2024-01-05"},
+  {"user_id": 4, "event": "view", "country": "NZ", "timestamp": "2024-01-05"}
+]
