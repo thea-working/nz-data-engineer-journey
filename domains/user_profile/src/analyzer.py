@@ -1,6 +1,7 @@
 import logging
-from collections import Counter, defaultdict
 import statistics
+from collections import Counter, defaultdict
+
 from . import User
 
 logger = logging.getLogger(__name__)
@@ -14,16 +15,16 @@ statistics 1) count users by country
 
 
 # practice python expression, ignore efficiency
-# def analyze_users(users):
-#     # count users by country
-#     country_count = Counter(user['country'] for user in users)
-#     # average age
-#     average_age = round((sum(user['age'] for user in users) / len(users)), 2)
-#     # median age
-#     median_age = statistics.median(user['age'] for user in users)
-#     # the youngest user
-#     youngest_user = min(users, key=lambda user: user['age'])
-#     return country_count, average_age, median_age, youngest_user
+def analyze_users(users):
+    # count users by country
+    country_count = Counter(user["country"] for user in users)
+    # average age
+    average_age = round((sum(user["age"] for user in users) / len(users)), 2)
+    # median age
+    median_age = statistics.median(user["age"] for user in users)
+    # the youngest user
+    youngest_user = min(users, key=lambda user: user["age"])
+    return country_count, average_age, median_age, youngest_user
 
 
 def analyze_users_optimized(users: list[User]):

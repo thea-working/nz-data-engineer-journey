@@ -19,20 +19,18 @@ def setup_logging(log_file: str, log_level: str = "INFO"):
     logging_config = {
         "version": 1,
         "disable_existing_loggers": False,
-
         "formatters": {
             "standard": {
                 "format": "%(asctime)s | %(levelname)s | %(name)s | "
-                          "%(filename)s:%(lineno)d | %(message)s"
+                "%(filename)s:%(lineno)d | %(message)s"
             }
         },
-
         "handlers": {
             "console": {
                 "class": "logging.StreamHandler",
                 "level": log_level,
                 "formatter": "standard",
-                "stream": "ext://sys.stdout"
+                "stream": "ext://sys.stdout",
             },
             "file": {
                 "class": "logging.handlers.RotatingFileHandler",
@@ -41,14 +39,10 @@ def setup_logging(log_file: str, log_level: str = "INFO"):
                 "filename": str(log_file),
                 "maxBytes": 5 * 1024 * 1024,  # 5 MB
                 "backupCount": 3,
-                "encoding": "utf-8"
-            }
+                "encoding": "utf-8",
+            },
         },
-
-        "root": {
-            "level": log_level,
-            "handlers": ["console", "file"]
-        }
+        "root": {"level": log_level, "handlers": ["console", "file"]},
     }
 
     logging.config.dictConfig(logging_config)

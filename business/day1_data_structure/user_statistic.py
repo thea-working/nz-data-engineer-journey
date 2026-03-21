@@ -1,7 +1,6 @@
 # statistics based on users information
 from collections import Counter
 
-
 # # users info
 # users = [
 #     {'id': 1, 'name': 'Alice', 'age': 25, 'country': 'NZ'},
@@ -66,31 +65,32 @@ from collections import Counter
 # age_distribution = Counter(age_bucket(user['age']) for user in users)
 # print("Age distribution:", age_distribution)
 
+
 def load_users():
     users = [
-        {'id': 1, 'name': 'Alice', 'age': 25, 'country': 'NZ'},
-        {'id': 2, 'name': 'Bob', 'age': 17, 'country': 'AU'},
-        {'id': 3, 'name': 'Charlie', 'age': 30, 'country': 'NZ'},
-        {'id': 4, 'name': 'David', 'age': 22, 'country': 'US'},
-        {'id': 5, 'name': 'Eva', 'age': 19, 'country': 'UK'},
+        {"id": 1, "name": "Alice", "age": 25, "country": "NZ"},
+        {"id": 2, "name": "Bob", "age": 17, "country": "AU"},
+        {"id": 3, "name": "Charlie", "age": 30, "country": "NZ"},
+        {"id": 4, "name": "David", "age": 22, "country": "US"},
+        {"id": 5, "name": "Eva", "age": 19, "country": "UK"},
     ]
     return users
 
 
 def filter_adults(users):
-    adults = [user for user in users if user['age'] >= 18]
+    adults = [user for user in users if user["age"] >= 18]
     return adults
 
 
 def count_by_country(users):
-    country_count = Counter(user['country'] for user in users)
+    country_count = Counter(user["country"] for user in users)
     return country_count
 
 
 def find_oldest_user(users):
     if not users:
         return None
-    oldest_user = max(users, key=lambda user: user['age'])
+    oldest_user = max(users, key=lambda user: user["age"])
     return oldest_user
 
 
@@ -99,9 +99,9 @@ def main():
     adults = filter_adults(users)
     country_count = count_by_country(users)
     oldest_user = find_oldest_user(users)
-    print('Adults: ', adults)
-    print('Country statistics', country_count)
-    print('Oldest user: ', oldest_user)
+    print("Adults: ", adults)
+    print("Country statistics", country_count)
+    print("Oldest user: ", oldest_user)
 
 
 if __name__ == "__main__":

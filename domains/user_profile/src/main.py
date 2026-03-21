@@ -1,14 +1,16 @@
-from pathlib import Path
 import json
 import logging
+from pathlib import Path
+
 from infrastructure.logging_config import setup_logging
-from .loader import load_users_from_csv
-from .cleaner import clean_users
+
 from .analyzer import analyze_users_optimized
+from .cleaner import clean_users
+from .loader import load_users_from_csv
 from .writer import save_result
 
-
 # user profile data pipeline
+
 
 def load_config():
     config_path = Path(__file__).resolve().parent.parent / "config.json"
@@ -28,7 +30,7 @@ def main():
     logger = logging.getLogger(__name__)
 
     try:
-        logger.info('User profile pipeline started')
+        logger.info("User profile pipeline started")
         input_file = base_dir / config["input_file"]
         output_file = base_dir / config["output_file"]
 
@@ -41,10 +43,10 @@ def main():
         # write result to file
         save_result(stats, output_file)
 
-        logger.info('User profile pipeline finished successfully')
+        logger.info("User profile pipeline finished successfully")
     except Exception as e:
-        logger.error(f'Pipeline failed with error: {e}')
+        logger.error(f"Pipeline failed with error: {e}")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

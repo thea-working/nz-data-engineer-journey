@@ -1,5 +1,5 @@
-import logging
 import csv
+import logging
 from pathlib import Path
 
 logger = logging.getLogger(__name__)
@@ -19,15 +19,18 @@ def save_result(stats, filepath):
 
     rows = []
     for country, count in country_count.items():
-        rows.append({'metric': f'country_{country}', 'value': count})
+        rows.append({"metric": f"country_{country}", "value": count})
     rows += [
-        {'metric': 'average_age', 'value': average_age},
-        {'metric': 'median_age', 'value': median_age},
-        {'metric': 'youngest_user', 'value': youngest_user.name if youngest_user else None}
+        {"metric": "average_age", "value": average_age},
+        {"metric": "median_age", "value": median_age},
+        {
+            "metric": "youngest_user",
+            "value": youngest_user.name if youngest_user else None,
+        },
     ]
 
-    with open(filepath, 'w', newline='') as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=['metric', 'value'])
+    with open(filepath, "w", newline="") as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=["metric", "value"])
         writer.writeheader()
         writer.writerows(rows)
 

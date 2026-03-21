@@ -1,5 +1,6 @@
-import pandas as pd
 import logging
+
+import pandas as pd
 
 logger = logging.getLogger(__name__)
 
@@ -17,9 +18,9 @@ class APIPostPipeline:
         :return: pd.DataFrame
                  user posts dataset
         """
-        logger.info('Loading API json data')
+        logger.info("Loading API json data")
         self.df = pd.read_json(self.input_file)
-        logger.info('Loaded %d rows', len(self.df))
+        logger.info("Loaded %d rows", len(self.df))
 
     def compute_user_posts_count(self):
         """
@@ -29,16 +30,12 @@ class APIPostPipeline:
                  post_count
         """
         if self.df is None:
-            raise ValueError('No data loaded')
-        logger.info('Computing user posts count')
-        result = (
-            self.df.groupby('userId')
-            .agg(post_count=('id', 'count'))
-            .reset_index()
-        )
+            raise ValueError("No data loaded")
+        logger.info("Computing user posts count")
+        result = self.df.groupby("userId").agg(post_count=("id", "count")).reset_index()
 
         self.df_user_posts = result
-        logger.info('Created user post summary (%d rows)', len(self.df_user_posts))
+        logger.info("Created user post summary (%d rows)", len(self.df_user_posts))
 
     def save_result(self):
         """
@@ -46,12 +43,12 @@ class APIPostPipeline:
         :return: None
         """
         self.output_file.mkdir(parents=True, exist_ok=True)
-        output_file = self.output_file / 'user_posts.csv'
-        logger.info('Saving user post summary to %s', output_file)
+        output_file = self.output_file / "user_posts.csv"
+        logger.info("Saving user post summary to %s", output_file)
 
         self.df_user_posts.to_csv(output_file, index=False)
 
-        logger.info('Saved %d records', len(self.df_user_posts))
+        logger.info("Saved %d records", len(self.df_user_posts))
 
     def run(self):
         # extract

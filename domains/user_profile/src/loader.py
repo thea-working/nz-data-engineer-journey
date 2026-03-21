@@ -19,15 +19,15 @@ def load_users_from_csv(filepath):
         return []
 
     users = []
-    with open(filepath, newline="", encoding='utf-8') as file:
+    with open(filepath, newline="", encoding="utf-8") as file:
         reader = csv.DictReader(file)
         for row in reader:
             # just load data from csv file and doesn't change raw data
             user = {
-                'id': row['id'],
-                'name': row['name'],
-                'age': row['age'],
-                'country': row['country'],
+                "id": row["id"],
+                "name": row["name"],
+                "age": row["age"],
+                "country": row["country"],
             }
             # remove this when user data is massive
             # logger.info(f'load users from csv, current user: {user}')

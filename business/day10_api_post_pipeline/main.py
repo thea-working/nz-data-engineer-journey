@@ -8,13 +8,10 @@ from infrastructure.logging_config import setup_logging
 
 def main():
     base_dir = Path(__file__).resolve().parent.parent
-    setup_logging(
-        log_file=str(base_dir / 'app.log'),
-        log_level='INFO'
-    )
+    setup_logging(log_file=str(base_dir / "app.log"), log_level="INFO")
     logger = logging.getLogger(__name__)
-    output_dir = base_dir / 'data'
-    json_file = output_dir / 'api_posts.json'
+    output_dir = base_dir / "data"
+    json_file = output_dir / "api_posts.json"
 
     try:
         api_url = "https://jsonplaceholder.typicode.com/posts"
@@ -28,10 +25,11 @@ def main():
         pipeline = APIPostPipeline(json_file, output_dir)
         pipeline.run()
 
-        logger.info('Fetching and processing API data finished successfully')
+        logger.info("Fetching and processing API data finished successfully")
 
     except Exception as e:
-        logger.exception(f'Fetching and processing API data failed: {e}')
+        logger.exception(f"Fetching and processing API data failed: {e}")
+
 
 if __name__ == "__main__":
     main()

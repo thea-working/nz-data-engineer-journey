@@ -1,6 +1,7 @@
 import json
-import pandas as pd
 import logging
+
+import pandas as pd
 
 logger = logging.getLogger(__name__)
 
@@ -20,11 +21,11 @@ class UserLogProcessor:
         :return: pd.DataFrame
                  user log dataset
         """
-        with open(self.input_path, 'r') as f:
+        with open(self.input_path, "r") as f:
             data = json.load(f)
 
         self.df = pd.DataFrame(data)
-        logger.info(f"Loaded user log %d rows", len(self.df))
+        logger.info("Loaded user log %d rows", len(self.df))
 
     def clean_data(self):
         """
@@ -35,12 +36,13 @@ class UserLogProcessor:
             raise ValueError("Dataframe not loaded")
 
         before = len(self.df)
-        self.df = self.df.dropna(subset=['country'])
+        self.df = self.df.dropna(subset=["country"])
         after = len(self.df)
-        logger.info(f"Original log {before} rows , "
-                    f"after cleaning {after} rows, "
-                    f"delete {before - after} rows with missing country"
-                    )
+        logger.info(
+            f"Original log {before} rows , "
+            f"after cleaning {after} rows, "
+            f"delete {before - after} rows with missing country"
+        )
 
     def compute_user_activity(self):
         """
@@ -50,12 +52,10 @@ class UserLogProcessor:
                  event_count
         """
         result = (
-            self.df.groupby('user_id')
-            .agg(event_count=('event', 'count'))
-            .reset_index()
+            self.df.groupby("user_id").agg(event_count=("event", "count")).reset_index()
         )
         self.df_activity = result
-        logger.info(f"Aggregated user activity created: %d rows", len(self.df_activity))
+        logger.info("Aggregated user activity created: %d rows", len(self.df_activity))
 
     def compute_country_activity(self):
         """
@@ -65,12 +65,12 @@ class UserLogProcessor:
                  event_count
         """
         result = (
-            self.df.groupby('country')
-            .agg(event_count=('event', 'count'))
-            .reset_index()
+            self.df.groupby("country").agg(event_count=("event", "count")).reset_index()
         )
         self.country_activity = result
-        logger.info(f"Aggregated country activity created: %d rows", len(self.country_activity))
+        logger.info(
+            "Aggregated country activity created: %d rows", len(self.country_activity)
+        )
 
     def compute_user_country_activity(self):
         """
@@ -81,12 +81,15 @@ class UserLogProcessor:
                  event_count
         """
         result = (
-            self.df.groupby(['user_id', 'country'])
-            .agg(event_count=('event', 'count'))
+            self.df.groupby(["user_id", "country"])
+            .agg(event_count=("event", "count"))
             .reset_index()
         )
         self.user_country_activity = result
-        logger.info("Aggregated user country activity created: %d rows", len(self.user_country_activity))
+        logger.info(
+            "Aggregated user country activity created: %d rows",
+            len(self.user_country_activity),
+        )
 
     def save_result(self):
         """
@@ -96,13 +99,13 @@ class UserLogProcessor:
         self.output_path.mkdir(parents=True, exist_ok=True)
 
         outputs = {
-            'user_activity.csv': self.df_activity,
-            'country_activity.csv': self.country_activity,
-            'user_country_activity.csv': self.user_country_activity
+            "user_activity.csv": self.df_activity,
+            "country_activity.csv": self.country_activity,
+            "user_country_activity.csv": self.user_country_activity,
         }
 
         for filename, df in outputs.items():
-            path = (self.output_path / filename)
+            path = self.output_path / filename
             df.to_csv(path, index=False)
 
             logger.info("Saved %s (%d rows)", path, len(df))
