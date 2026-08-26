@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nz-data-engineer-journey"
+version = "0.1.0"
+description = "Portfolio repository centered on a PySpark analytics platform."
+requires-python = ">=3.11,<3.14"
+dependencies = [
+  "pandas>=2.2",
+  "pyspark>=3.5,<4.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "black>=24.0",
+  "pytest>=8.0",
+  "pytest-cov>=5.0",
+  "ruff>=0.5",
+]
+
+[tool.setuptools.packages.find]
+include = ["business*", "domains*", "infrastructure*", "tests*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.black]
+line-length = 88
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]

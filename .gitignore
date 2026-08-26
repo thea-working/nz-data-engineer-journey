@@ -1,0 +1,15 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+.venv/
+*.log
+*.egg-info/
+build/
+dist/
+domains/analytics_spark_project/data/silver/
+domains/analytics_spark_project/data/gold/
+domains/analytics_spark_project/data/quality/
+.idea/

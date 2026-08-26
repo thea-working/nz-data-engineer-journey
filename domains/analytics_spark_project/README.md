@@ -1,114 +1,100 @@
-# User Behavior Analytics Platform (PySpark)
+# User Behavior Analytics Platform
 
-## 📌 Overview
+This project is a portfolio-grade batch analytics platform built with PySpark. It is designed to demonstrate senior data engineering skills across architecture, SQL, Python engineering, data quality, and distributed data processing.
 
-This project implements a distributed data processing pipeline using PySpark to analyze user behavior data at scale. It simulates a real-world data engineering workflow, including ETL processing, sessionization, and analytical data modeling.
+## What It Shows
 
-The pipeline processes raw event logs and produces curated analytics datasets that support user engagement analysis and content performance tracking.
+- medallion-style data architecture using `raw -> silver -> gold -> quality`
+- Spark DataFrame transformations for cleaning, joins, and sessionization
+- Spark SQL for business-facing analytics models
+- explicit data quality checks covering schema assumptions, duplicate keys, invalid ranges, and orphan dimension references
+- code organized into `jobs`, `pipeline`, `transformations`, `quality`, `sql`, and `utils`
 
----
+## Architecture
 
-## 🏗️ Architecture
+```mermaid
+flowchart LR
+    A["Raw Parquet Inputs"] --> B["Cleaning & Standardization"]
+    B --> C["Silver: Cleaned Events"]
+    C --> D["Dimension Enrichment"]
+    D --> E["Silver: Enriched Events"]
+    E --> F["Sessionization"]
+    F --> G["Gold: Session Metrics"]
+    E --> H["Spark SQL Gold Models"]
+    D --> I["Quality Checks"]
+    G --> H
+    I --> J["quality_report.json"]
+    H --> K["DAU / User Engagement / Content Ranking"]
+```
 
-The pipeline follows a layered data architecture commonly used in modern data platforms:
+## Data Model
 
-Bronze (Raw Data) → Silver (Cleaned & Enriched Data) → Gold (Analytics Tables)
+### Raw
 
-This design ensures data quality, reusability, and scalability.
+- `user_events.parquet`
+- `users.parquet`
+- `content.parquet`
 
----
+### Silver
 
-## ⚙️ Tech Stack
+- `cleaned_events.parquet`
+- `enriched_events.parquet`
+- `sessionized_events.parquet`
 
-- **PySpark** (distributed data processing)
-- **Parquet** (columnar storage format)
-- **SQL / DataFrame API**
-- **Window Functions**
-- **Git-based project structure**
+### Gold
 
----
+- `session_metrics.parquet`
+- `daily_active_users.parquet`
+- `user_engagement.parquet`
+- `content_ranking.parquet`
 
-## 🔄 Data Pipeline (ETL)
+### Quality
 
-### Extract
-- Ingest raw user events, user profiles, and content metadata from Parquet sources
+- `quality_report.json`
 
-### Transform
-- Clean and validate event data
-- Enrich events via joins with dimension tables
-- Implement sessionization using window functions (lag, cumulative aggregation)
+## Key Engineering Decisions
 
-### Load
-- Store processed datasets into structured analytics tables (Gold layer)
+### 1. DataFrame API for transformation-heavy stages
 
----
+Cleaning, deduplication, timestamp parsing, enrichment, and sessionization are implemented with the DataFrame API because these stages are easier to compose and test in Python.
 
-## 📊 Data Modeling (Analytics Layer)
+### 2. SQL for presentation-ready analytics
 
-The pipeline produces the following analytical datasets:
+Gold reporting models use Spark SQL from standalone `.sql` files to show SQL fluency and make analytics definitions easy to review.
 
-### User Metrics
-- Daily Active Users (DAU)
-- Events per user
-- User engagement metrics
+### 3. Data quality as a first-class output
 
-### Session Metrics
-- Session duration
-- Event count per session
+The pipeline does not only produce analytics tables. It also produces a structured quality report so downstream users can inspect invalid event types, timestamp parsing issues, duplicate IDs, and missing dimension references.
 
-### Content Analytics
-- Top N content per category using ranking functions (`row_number`)
+## Project Structure
 
----
-
-## ⚡ Performance Optimization
-
-The pipeline incorporates several distributed data processing optimizations:
-
-### 1. Broadcast Join
-- Small dimension tables are broadcasted to reduce shuffle cost
-
-### 2. Data Skew Handling
-- Skewed keys are mitigated using salting techniques to balance workload across partitions
-
-### 3. Partition Management
-- Repartitioning is applied to improve parallelism
-- Output partitions are controlled using `repartition` to prevent small file issues
-
-### 4. Shuffle Optimization
-- Aggregations leverage map-side combine to reduce shuffle volume
-
----
-
-## 📂 Project Structure
+```text
 analytics_spark_project/
-├── jobs/ # Pipeline entry point
-├── pipeline/ # Pipeline orchestration
-├── transformations/ # Core business logic
-├── utils/ # Spark session & IO utilities
-├── data/ # Bronze / Silver / Gold layers
+  jobs/              entrypoints for data generation and pipeline execution
+  pipeline/          orchestration and settings
+  quality/           data quality checks and reporting
+  sql/               Spark SQL models for gold tables
+  transformations/   cleaning, joins, sessionization
+  utils/             Spark session and IO helpers
+  data/              raw, silver, gold, and quality outputs
+```
 
-
----
-
-## ▶️ How to Run
+## How to Run
 
 ```bash
-python jobs/run_pipeline.py
-💡 Key Engineering Concepts
+python3.12 -m venv .venv
+source .venv/bin/activate
+pip install -e '.[dev]'
+python -m domains.analytics_spark_project.jobs.generate_data --event-count 100000
+python -m domains.analytics_spark_project.jobs.run_pipeline --top-n-content 10
+```
 
-Distributed data processing with Spark
+Use Python 3.11 or 3.12 for local execution. PySpark 3.5 is not a reliable target on Python 3.14.
 
-ETL pipeline design
+## What to Highlight in Interviews
 
-Data partitioning and shuffle optimization
-
-Window functions for sessionization and ranking
-
-Handling data skew in large-scale datasets
-
-🚀 Potential Improvements
-
-Integrate workflow orchestration (e.g., Airflow)
-
-Deploy on cloud platforms (AWS EMR / Databricks)
+- how the sessionization logic works with window functions and inactivity gaps
+- why broadcast joins are appropriate for small dimensions
+- how SQL and DataFrame APIs are combined instead of forcing one style everywhere
+- how quality checks protect analytics trustworthiness
+- how the current local design can evolve into orchestrated cloud execution
