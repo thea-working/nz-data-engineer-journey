@@ -13,3 +13,4 @@ domains/analytics_spark_project/data/silver/
 domains/analytics_spark_project/data/gold/
 domains/analytics_spark_project/data/quality/
 .idea/
+metastore_db/
