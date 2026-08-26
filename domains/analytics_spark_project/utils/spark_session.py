@@ -1,13 +1,12 @@
 from pyspark.sql import SparkSession
 
 
-def create_spark() -> SparkSession:
-    spark = (
-        SparkSession.builder.appName("analytics_spark_project")
-        .master("local[6]")
-        .config("spark.sql.shuffle.partitions", 32)
-        .config("spark.default.parallelism", 32)
-        .config("spark.driver.memory", "4g")
+def create_spark(app_name: str = "user-behavior-analytics-platform") -> SparkSession:
+    return (
+        SparkSession.builder.appName(app_name)
+        .master("local[*]")
+        .config("spark.sql.session.timeZone", "UTC")
+        .config("spark.sql.shuffle.partitions", "8")
+        .config("spark.sql.adaptive.enabled", "true")
         .getOrCreate()
     )
-    return spark
