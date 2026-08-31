@@ -1,4 +1,3 @@
-from
 -- 员工表
 CREATE OR REPLACE TEMP VIEW employees AS
 SELECT * FROM VALUES
