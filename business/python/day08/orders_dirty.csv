@@ -1,0 +1,13 @@
+order_id,user,amount,status
+A001,Alice,100,completed
+A002,Bob,200,completed
+A003,Alice,invalid,completed
+A004,Charlie,-50,completed
+A005,David,300,cancelled
+A006,,150,completed
+A007,Eve,250,completed
+A008,Bob,abc,completed
+A009,Alice,100,unknown
+A010,David,400,completed
+,,,
+,,,
