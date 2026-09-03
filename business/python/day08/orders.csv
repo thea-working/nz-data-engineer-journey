@@ -1,0 +1,5 @@
+order_id,user,amount,status
+A001,Alice,100,completed
+A002,Bob,200,cancelled
+A003,Alice,150,completed
+A004,David,300,completed
